@@ -1,4 +1,5 @@
-const { statusCode, authConst: { AUTHORIZATION } } = require('../../constants');
+const { statusCode } = require('../../constants');
+const { config: { authConfig: { AUTHORIZATION } } } = require('../../config');
 const { OAuthModel } = require('../../dataBase');
 const { ErrorHandler, errorMessages: { UNAUTHORIZED, WRONG_TOKEN, FORBIDDEN_ACCES } } = require('../../errors');
 const { authService } = require('../../services');

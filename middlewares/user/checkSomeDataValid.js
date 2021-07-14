@@ -1,6 +1,6 @@
 const { statusCode } = require('../../constants');
 const { ErrorHandler, errorMessages: { VALIDATION_ERROR } } = require('../../errors');
-const { userValid: { userUpdateValidator } } = require('../../validators');
+const { userValidation: { userUpdateValidator } } = require('../../validators');
 
 module.exports = (req, res, next) => {
   try {

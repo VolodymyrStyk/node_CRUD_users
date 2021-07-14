@@ -3,7 +3,7 @@ const router = require('express').Router();
 const { usersController } = require('../controllers');
 const { config: { authConfig: { ACCESS_TOKEN_TYPE } } } = require('../config');
 const { userMiddleware, authMiddleware } = require('../middlewares');
-const { userValid: { userUpdateValidator, userValidator } } = require('../validators');
+const { userValidation: { userUpdateValidator, userValidator } } = require('../validators');
 
 router.get('/', usersController.users.getAllUsers);
 

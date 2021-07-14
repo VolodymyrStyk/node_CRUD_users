@@ -7,8 +7,8 @@ module.exports = {
   fileType: require('./fileType.constants'),
   dirName: require('./itemDirType.constants'),
   normalizator: require('./normalizator.constants'),
-  regExp: require('./regExp.constants'),
   succesMessage: require('./successMessage.constants'),
+  regExp: require('./regExp.constants'),
   userRoles: require('./userRoles.constants'),
   dataBaseMethod: require('./dataBaseMethod.constants')
 };

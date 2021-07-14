@@ -3,7 +3,7 @@ const { promisify } = require('util');
 
 const {
   config: {
-    authentConfig: {
+    authConfig: {
       ACCESS,
       ACCESS_T_DURATION,
       ACCESS_TOKEN_SECRET,

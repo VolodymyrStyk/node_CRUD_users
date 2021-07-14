@@ -1,7 +1,7 @@
 const { ErrorHandler, errorMessages: { WRONG_MIME_TYPE, FILE_SIZE_ERROR } } = require('../../errors');
 const {
   statusCode,
-  mimeType: {
+  fileMimetypes: {
     DOCS_MIMETYPES,
     VIDEOS_MIMETYPES,
     PHOTOS_MIMETYPES,

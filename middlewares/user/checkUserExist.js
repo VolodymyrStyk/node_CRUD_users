@@ -1,7 +1,7 @@
 const { statusCode } = require('../../constants');
 const { UserModel } = require('../../dataBase');
 const { ErrorHandler, errorMessages: { BAD_ID, WRONG_ID_FORMAT } } = require('../../errors');
-const { userValid: { userIdValidator } } = require('../../validators');
+const { userValidation: { userIdValidator } } = require('../../validators');
 
 module.exports = async (req, res, next) => {
   try {
