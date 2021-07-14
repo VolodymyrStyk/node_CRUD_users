@@ -17,7 +17,7 @@ module.exports = {
   },
 
   [emailActions.CREATE_NEW_USER]: {
-    templateName: 'createNewUser',
+    templateName: 'createUser',
     subject: 'Create new User, approve e-mail'
   },
 

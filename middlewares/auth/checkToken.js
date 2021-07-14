@@ -8,6 +8,7 @@ module.exports = (tokenType) => async (req, res, next) => {
   try {
     const token = req.get(AUTHORIZATION);
     const { body: { email } } = req;
+
     if (!token) {
       throw new ErrorHandler(statusCode.UNAUTHORIZED, UNAUTHORIZED.message, UNAUTHORIZED.code);
     }

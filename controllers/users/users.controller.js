@@ -7,8 +7,8 @@ const {
 } = require('../../constants');
 
 const { emailActions: { CREATE_NEW_USER, DELETE_USER, UPDATE_USER } } = require('../../constants');
-const { config: { launchConfig: { SERVICE_EMAIL_ACTIVATE, STATIC } } } = require('../../config');
-const { UserModel } = require('../../dataBase');
+const { config: { launchConfig: { SERVICE_EMAIL_ACTIVATE, STATIC }, authConfig: { AUTHORIZATION } } } = require('../../config');
+const { UserModel, OAuthModel } = require('../../dataBase');
 
 const {
   passHasher,
@@ -24,7 +24,7 @@ const unlinkPromise = promisify(fs.unlink);
 module.exports = {
   getAllUsers: async (req, res, next) => {
     try {
-      const users = await UserModel.find({}).lean();
+      const users = await UserModel.find({ isDelete: false }).lean();
 
       users.map((user) => userNormalize.userNormalizator(user));
 
@@ -75,9 +75,7 @@ module.exports = {
         cretedUser.avatars.push(filePath);
       }
 
-      const normalizedUser = await userNormalize.userNormalizator(cretedUser.toJSON());
-
-      res.status(statusCode.CREATED_UPDATED).json(normalizedUser);
+      res.status(statusCode.CREATED_UPDATED).json(succesMessage.NEW_USER);
     } catch (err) {
       next(err);
     }
@@ -107,12 +105,11 @@ module.exports = {
       const { userId } = req.params;
       const { email, name } = req.user;
 
-      await UserModel.findByIdAndDelete(userId);
+      const token = req.get(AUTHORIZATION);
+
+      await OAuthModel.remove({ accessToken: token });
+      await UserModel.findOneAndUpdate({ _id: userId }, { isDelete: true });
       await mailService.sendMail(email, DELETE_USER, { userName: name }, emailTemplates.SUBJ_DELETE);
-
-      const userPath = path.join(process.cwd(), STATIC, dirName.USERS, userId);
-
-      await unlinkPromise(userPath);
 
       res.status(statusCode.NO_CONTENT_DELETED).json(succesMessage.DELETED_SUCCESS);
     } catch (err) {
@@ -225,5 +222,4 @@ module.exports = {
       next(e);
     }
   },
-
 };

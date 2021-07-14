@@ -6,7 +6,7 @@ module.exports = async (req, res, next) => {
   try {
     const { body } = req;
     const { email } = body;
-    const findUserByEmail = await UserModel.findOne({ email });
+    const findUserByEmail = await UserModel.findOne({ email, isDelete: false });
 
     if (findUserByEmail) {
       throw new ErrorHandler(statusCode.CONFLICT, USER_EXIST.message, USER_EXIST.code);

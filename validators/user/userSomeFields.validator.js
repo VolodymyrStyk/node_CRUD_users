@@ -3,7 +3,7 @@ const { regExp, userRoles } = require('../../constants');
 
 module.exports = {
   createValidUser: Joi.object().keys({
-    email: Joi.string().regex(regExp.EMAIL_REGEXP),
+    // email: Joi.string().regex(regExp.EMAIL_REGEXP).forbidden(),
     password: Joi.string().regex(regExp.PASSWORD_REGEXP),
     name: Joi.string().min(2).max(50),
     age: Joi.number().min(16).max(100),

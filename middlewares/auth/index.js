@@ -3,4 +3,5 @@ module.exports = {
   findByEmailPassword: require('./findByEmailPassword'),
   checkToken: require('./checkToken'),
   checkMailToken: require('./checkMailToken'),
+  checkEmailStatus: require('./checkEmailStatus')
 };

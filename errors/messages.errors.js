@@ -84,6 +84,11 @@ module.exports = {
     code: 4031
   },
 
+  NOT_ACTIVE_EMAIL: {
+    message: 'Forbidden, you email is not active. Please activate your email!!!',
+    code: 4031
+  },
+
   UNKNOWN_ERROR: {
     message: 'Unknown error',
     code: 0

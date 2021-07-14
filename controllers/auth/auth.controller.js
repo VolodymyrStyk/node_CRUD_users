@@ -3,7 +3,7 @@ const { authService, mailService } = require('../../services');
 const { config: { authConfig: { AUTHORIZATION } } } = require('../../config');
 
 const {
-  succesMessage: { SUCCESS },
+  succesMessage: { SUCCESS, USER_ACTIVE },
   statusCode: { CREATED_UPDATED, NO_CONTENT_DELETED },
   emailActions: { WELCOME, LOG_OUT }
 } = require('../../constants');
@@ -62,16 +62,11 @@ module.exports = {
 
   activate: async (req, res, next) => {
     try {
-      const { _id, email, name } = req.user;
+      const { email, name } = req.user;
 
-      const tokkenPair = authService.generateTokenPair();
-
-      await OAuthModel.create({ ...tokkenPair, user_id: _id });
       await mailService.sendMail(email, WELCOME, { userName: name });
 
-      const normalizeUser = userNormalize.userNormalizator(req.user.toJSON());
-
-      res.status(CREATED_UPDATED).json({ ...tokkenPair, user: normalizeUser });
+      res.status(CREATED_UPDATED).json(USER_ACTIVE);
     } catch (err) {
       next(err);
     }

@@ -2,14 +2,20 @@ const EmailTemplates = require('email-templates');
 const nodemailer = require('nodemailer');
 const path = require('path');
 
-const { config: { launchConfig: { SERVICE_EMAIL, SERVICE_EMAIL_LOGIN, SERVICE_EMAIL_PASS } } } = require('../config');
+const {
+  config: {
+    launchConfig: {
+      SERVICE_EMAIL, SERVICE_EMAIL_LOGIN, SERVICE_EMAIL_PASS, EMAIL_TEMPLATES
+    }
+  }
+} = require('../config');
 const { statusCode, emailTemplates: { FROM_SERVER } } = require('../constants');
 const templateInfo = require('../emailTemplates');
 const { ErrorHandler, errorMessages: { TEMPLATE_NOT_FOUND } } = require('../errors');
 
 const templateParser = new EmailTemplates({
   views: {
-    root: path.join(process.cwd(), 'email-templates'),
+    root: path.join(process.cwd(), EMAIL_TEMPLATES),
   }
 });
 

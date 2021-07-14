@@ -21,10 +21,16 @@ const oAuthSchema = new Schema({
 
 }, { timestamps: true, toObject: { virtuals: true }, toJSON: { virtuals: true } });
 
-oAuthSchema.pre(dataBaseMethod.FIND_ONE, () => this.populate('user_id'));
+oAuthSchema.pre(dataBaseMethod.FIND_ONE, function() {
+  this.populate('user_id');
+});
 
-oAuthSchema.pre(dataBaseMethod.CREATE, () => this.populate('user_id'));
+oAuthSchema.pre(dataBaseMethod.CREATE, function() {
+  this.populate('user_id');
+});
 
-oAuthSchema.pre(dataBaseMethod.FIND_ONE_AND_DELETE, () => this.populate('user_id'));
+oAuthSchema.pre(dataBaseMethod.FIND_ONE_AND_DELETE, function() {
+  this.populate('user_id');
+});
 
 module.exports = model(dataBaseTables.O_AUTH, oAuthSchema);

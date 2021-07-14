@@ -26,7 +26,11 @@ const userSchema = new Schema({
     enum: Object.values(userRoles),
     default: userRoles.USER
   },
-  activate: {
+  isEmailActive: {
+    type: Boolean,
+    default: false
+  },
+  isDelete: {
     type: Boolean,
     default: false
   },
@@ -44,6 +48,8 @@ const userSchema = new Schema({
   }
 }, { timestamps: true, toObject: { virtuals: true }, toJSON: { virtuals: true } });
 
-userSchema.virtual('Name and email').get(() => `Name: ${this.name}; Email: ${this.email}`);
+userSchema.virtual('Name and Email').get(function() {
+  return `Name:${this.name}; Email:${this.email}`;
+});
 
 module.exports = model(dataBaseTables.USER, userSchema);

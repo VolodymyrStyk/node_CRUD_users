@@ -12,7 +12,7 @@ module.exports = async (req, res, next) => {
       throw new ErrorHandler(statusCode.BAD_REQUEST, WRONG_ID_FORMAT.message, WRONG_ID_FORMAT.code);
     }
 
-    const userById = await UserModel.findById(userId);
+    const userById = await UserModel.findOne({ _id: userId, isDelete: false });
 
     if (!userById) {
       throw new ErrorHandler(statusCode.NOT_FOUND, BAD_ID.message, BAD_ID.code);
