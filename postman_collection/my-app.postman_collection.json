@@ -1,0 +1,1077 @@
+{
+	"info": {
+		"_postman_id": "958e8bdc-faa9-4978-8c18-be1408e16981",
+		"name": "my-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "myApp",
+			"item": [
+				{
+					"name": "users request",
+					"item": [
+						{
+							"name": "/users - get all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostApi}}/users",
+									"host": [
+										"{{hostApi}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/ - add new user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "amail@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "passworD1",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "Volodymyr",
+											"type": "text"
+										},
+										{
+											"key": "age",
+											"value": "27",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{hostApi}}/users",
+									"host": [
+										"{{hostApi}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/:id - get by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYwMzU0MTMsImV4cCI6MTYyNjAzNjAxM30.7hu6ucT4w4U_TRSSeOLvaZ_638eDN8SQY7bArhbBTJg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{hostApi}}/users/60ea0cb760aa252b50ab2e0f",
+									"host": [
+										"{{hostApi}}"
+									],
+									"path": [
+										"users",
+										"60ea0cb760aa252b50ab2e0f"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/:id - del by id",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYyODg4MzIsImV4cCI6MTYyNjMwNjgzMn0.7df2pSWfqDlWECMRCWF4lvPmU8b09DepPg7m6BuOT7U",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{hostApi}}/users/60ef320dd9fecf3200808aee",
+									"host": [
+										"{{hostApi}}"
+									],
+									"path": [
+										"users",
+										"60ef320dd9fecf3200808aee"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/:id - change by id all required fields",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYyODg1NjQsImV4cCI6MTYyNjMwNjU2NH0.GMGyPIXXCKjcYQTT_QCy35nMhG-iqXIxr3wI4HIoNZM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "mail@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "passwordA1",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "Andy",
+											"type": "text"
+										},
+										{
+											"key": "age",
+											"value": "44",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{hostApi}}/users/60ef3011dbee391ea8f00100",
+									"host": [
+										"{{hostApi}}"
+									],
+									"path": [
+										"users",
+										"60ef3011dbee391ea8f00100"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/:id - change some fields",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYyOTkzNTYsImV4cCI6MTYyNjMxNzM1Nn0.ha0cZk_1v-75EQvhMWv1p3SelfYY3RqAONAnwGYgAH4",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "mail@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "passworD1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "Volodya",
+											"type": "text"
+										},
+										{
+											"key": "school",
+											"value": "high",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{hostApi}}/users/60ef5a98e88549292443693a",
+									"host": [
+										"{{hostApi}}"
+									],
+									"path": [
+										"users",
+										"60ef5a98e88549292443693a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/:id/avatar - get avatar by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYzMDczMTEsImV4cCI6MTYyNjMyNTMxMX0.hDkwvAy-8mnbeLASnDK78Gvan__ybkUCK3gaBxO3QSA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{hostApi}}/users/60ef5a98e88549292443693a/avatar",
+									"host": [
+										"{{hostApi}}"
+									],
+									"path": [
+										"users",
+										"60ef5a98e88549292443693a",
+										"avatar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/:id/avatar - set avatar",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYzMDczMTEsImV4cCI6MTYyNjMyNTMxMX0.hDkwvAy-8mnbeLASnDK78Gvan__ybkUCK3gaBxO3QSA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "avatar",
+											"type": "file",
+											"src": "/D:/Photo/Робочий стіл/14_1323.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{hostApi}}/users/60ef5a98e88549292443693a/avatar",
+									"host": [
+										"{{hostApi}}"
+									],
+									"path": [
+										"users",
+										"60ef5a98e88549292443693a",
+										"avatar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/:id/avatar - set avatar by id",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYzMDczMTEsImV4cCI6MTYyNjMyNTMxMX0.hDkwvAy-8mnbeLASnDK78Gvan__ybkUCK3gaBxO3QSA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "avatar",
+											"type": "file",
+											"src": "/D:/Photo/Робочий стіл/14_1323.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{hostApi}}/users/60ef5a98e88549292443693a/avatar/set/0b567bf0-e500-11eb-ab74-375b5e7960cd.jp",
+									"host": [
+										"{{hostApi}}"
+									],
+									"path": [
+										"users",
+										"60ef5a98e88549292443693a",
+										"avatar",
+										"set",
+										"0b567bf0-e500-11eb-ab74-375b5e7960cd.jp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/:id/documents - get all documents",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYwMzY3MjcsImV4cCI6MTYyNjAzNzMyN30.uXMjUDk7lAGqsRkxkl4Ueh7o5P1B3RRt4lWV-wQsr_U",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{hostApi}}/users/60ea0cb760aa252b50ab2e0f/documents",
+									"host": [
+										"{{hostApi}}"
+									],
+									"path": [
+										"users",
+										"60ea0cb760aa252b50ab2e0f",
+										"documents"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/:id/avatar - del by id",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYyODg1NjQsImV4cCI6MTYyNjMwNjU2NH0.GMGyPIXXCKjcYQTT_QCy35nMhG-iqXIxr3wI4HIoNZM",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{hostApi}}/users/60ef3011dbee391ea8f00100/avatar",
+									"host": [
+										"{{hostApi}}"
+									],
+									"path": [
+										"users",
+										"60ef3011dbee391ea8f00100",
+										"avatar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/:id/documents - upload file",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYzMDczMTEsImV4cCI6MTYyNjMyNTMxMX0.hDkwvAy-8mnbeLASnDK78Gvan__ybkUCK3gaBxO3QSA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "documents",
+											"type": "file",
+											"src": "/C:/Users/volod/Desktop/Git и Github для начинающих.pdf"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{hostApi}}/users/60ef5a98e88549292443693a/documents",
+									"host": [
+										"{{hostApi}}"
+									],
+									"path": [
+										"users",
+										"60ef5a98e88549292443693a",
+										"documents"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "authentication request",
+					"item": [
+						{
+							"name": "/login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "v3vova3v@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "passwordA1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{hostApi}}/auth/login",
+									"host": [
+										"{{hostApi}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/logout",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYyOTkwODUsImV4cCI6MTYyNjMxNzA4NX0.IRwqTOjD99WRoD2q1E_FITX7wI5wEfQ3RTTTYIqEsxo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{hostApi}}/auth/logout",
+									"host": [
+										"{{hostApi}}"
+									],
+									"path": [
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/refresh",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYyOTkxMjcsImV4cCI6MTYyODg5MTEyN30.RuD-py2EXydFyEOtI9TxNhg79Ef0Ek-ddOtVY79LIdQ",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{hostApi}}/auth/refresh",
+									"host": [
+										"{{hostApi}}"
+									],
+									"path": [
+										"auth",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYzMDY3MjcsImV4cCI6MTYyNjMyNDcyN30.R7-veIRpFQKRU6Pxwmhr0Nk_4v0u58WZksMMogXzFFo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "mailv@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "passworD11",
+											"type": "text"
+										},
+										{
+											"key": "newPassword",
+											"value": "passwordA1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{hostApi}}/auth/password",
+									"host": [
+										"{{hostApi}}"
+									],
+									"path": [
+										"auth",
+										"password"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "myApp",
+					"item": [
+						{
+							"name": "users request",
+							"item": [
+								{
+									"name": "/users - get all",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{hostApi}}/users",
+											"host": [
+												"{{hostApi}}"
+											],
+											"path": [
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/users/ - add new user",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "",
+													"value": "passwordA1",
+													"type": "text"
+												},
+												{
+													"key": "",
+													"value": "",
+													"type": "text"
+												},
+												{
+													"key": "",
+													"value": "",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{hostApi}}/users",
+											"host": [
+												"{{hostApi}}"
+											],
+											"path": [
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/users/:id - get by id",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYwMzU0MTMsImV4cCI6MTYyNjAzNjAxM30.7hu6ucT4w4U_TRSSeOLvaZ_638eDN8SQY7bArhbBTJg",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": []
+										},
+										"url": {
+											"raw": "{{hostApi}}/users/60ea0cb760aa252b50ab2e0f",
+											"host": [
+												"{{hostApi}}"
+											],
+											"path": [
+												"users",
+												"60ea0cb760aa252b50ab2e0f"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/users/:id - del by id",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjU3NzE5OTIsImV4cCI6MTYyNTc3MjU5Mn0.gTY41wtqXn38Q0sRrkEORXLPvPgAv7KnHGrDeMxzdT4",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{hostApi}}/users/60e74fcd9d1616042422ff85",
+											"host": [
+												"{{hostApi}}"
+											],
+											"path": [
+												"users",
+												"60e74fcd9d1616042422ff85"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/users/:id - change by id all required fields",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjU3NzE3MzIsImV4cCI6MTYyNTc3MjMzMn0.7C6YeYBhQ68MAX7B8ZTCtznQ08VJ-99Ln-QVzG-yoB8",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "email",
+													"value": "v3vova3v@gmail.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "passwordA1",
+													"type": "text"
+												},
+												{
+													"key": "name",
+													"value": "Andy",
+													"type": "text"
+												},
+												{
+													"key": "age",
+													"value": "44",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{hostApi}}/users/60e74bbb6dbd8e0ae4602b72",
+											"host": [
+												"{{hostApi}}"
+											],
+											"path": [
+												"users",
+												"60e74bbb6dbd8e0ae4602b72"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/users/:id - change some fields",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjU3NzE3MzIsImV4cCI6MTYyNTc3MjMzMn0.7C6YeYBhQ68MAX7B8ZTCtznQ08VJ-99Ln-QVzG-yoB8",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "age",
+													"value": "25",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "passworD1",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "email",
+													"value": "",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "{{hostApi}}/users/60e74bbb6dbd8e0ae4602b72",
+											"host": [
+												"{{hostApi}}"
+											],
+											"path": [
+												"users",
+												"60e74bbb6dbd8e0ae4602b72"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/users/:id/avatar - get avatar by id",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYwMzU0MTMsImV4cCI6MTYyNjAzNjAxM30.7hu6ucT4w4U_TRSSeOLvaZ_638eDN8SQY7bArhbBTJg",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": []
+										},
+										"url": {
+											"raw": "{{hostApi}}/users/60ea0cb760aa252b50ab2e0f/avatar",
+											"host": [
+												"{{hostApi}}"
+											],
+											"path": [
+												"users",
+												"60ea0cb760aa252b50ab2e0f",
+												"avatar"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/users/:id/avatar - set avatar by id",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYwMzU0MTMsImV4cCI6MTYyNjAzNjAxM30.7hu6ucT4w4U_TRSSeOLvaZ_638eDN8SQY7bArhbBTJg",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "avatar",
+													"type": "file",
+													"src": "/D:/Photo/Робочий стіл/14_1323.jpg"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{hostApi}}/users/60ea0cb760aa252b50ab2e0f/avatar",
+											"host": [
+												"{{hostApi}}"
+											],
+											"path": [
+												"users",
+												"60ea0cb760aa252b50ab2e0f",
+												"avatar"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/users/:id/documents - get all documents",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYwMzY3MjcsImV4cCI6MTYyNjAzNzMyN30.uXMjUDk7lAGqsRkxkl4Ueh7o5P1B3RRt4lWV-wQsr_U",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{hostApi}}/users/60ea0cb760aa252b50ab2e0f/documents",
+											"host": [
+												"{{hostApi}}"
+											],
+											"path": [
+												"users",
+												"60ea0cb760aa252b50ab2e0f",
+												"documents"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/users/:id/avatar - del by id",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYxMjc1NTEsImV4cCI6MTYyNjEzODM1MX0.TQzFX2350u_jdufmequ4IHdqRvdoKp8jLSS9rgh_6Fg",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{hostApi}}/users/60ecbcad4714f830f849e986/avatar",
+											"host": [
+												"{{hostApi}}"
+											],
+											"path": [
+												"users",
+												"60ecbcad4714f830f849e986",
+												"avatar"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/users/:id/documents - upload file",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYwMzY3MjcsImV4cCI6MTYyNjAzNzMyN30.uXMjUDk7lAGqsRkxkl4Ueh7o5P1B3RRt4lWV-wQsr_U",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "documents",
+													"type": "file",
+													"src": "/C:/Users/volod/Desktop/Git и Github для начинающих.pdf"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{hostApi}}/users/60ea0cb760aa252b50ab2e0f/documents",
+											"host": [
+												"{{hostApi}}"
+											],
+											"path": [
+												"users",
+												"60ea0cb760aa252b50ab2e0f",
+												"documents"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "authentication request",
+							"item": [
+								{
+									"name": "/login",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "email",
+													"value": "v3vova3v@gmail.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "passwordA1",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{hostApi}}/authentication/login",
+											"host": [
+												"{{hostApi}}"
+											],
+											"path": [
+												"authentication",
+												"login"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/logout",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjU3NDgzNzcsImV4cCI6MTYyNTc0ODk3N30.qsNX-T8gm6x3nkplvf9BdlAlJIOpNGaAgtWlrTFekGU",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{hostApi}}/authentication/logout",
+											"host": [
+												"{{hostApi}}"
+											],
+											"path": [
+												"authentication",
+												"logout"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/refresh",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjU3Njk5MzQsImV4cCI6MTYyODM2MTkzNH0.37biE0nU0NjBNHGAyD2FHPjRokpnRVTlmtjFUD3ovLk",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{hostApi}}/authentication/refresh",
+											"host": [
+												"{{hostApi}}"
+											],
+											"path": [
+												"authentication",
+												"refresh"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "'/' - get All request",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "id",
+										"value": "1",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostApi}}",
+									"host": [
+										"{{hostApi}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "'/' - get All request",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "id",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostApi}}",
+							"host": [
+								"{{hostApi}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

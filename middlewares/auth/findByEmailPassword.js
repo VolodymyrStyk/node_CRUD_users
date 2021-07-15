@@ -6,21 +6,21 @@ const { UserModel } = require('../../dataBase');
 module.exports = async (req, res, next) => {
   try {
     const { body: { email, password } } = req;
-    const userByLogin = await UserModel.findOne({ email });
+    const userByEmail = await UserModel.findOne({ email });
 
-    if (!userByLogin) {
+    if (!userByEmail) {
       throw new ErrorHandler(statusCode.BAD_REQUEST, WRONG_LOGIN_OR_PASS.message, WRONG_LOGIN_OR_PASS.code);
     }
 
-    const { isEmailActive } = userByLogin;
+    const { isEmailActive } = userByEmail;
 
     if (!isEmailActive) {
       throw new ErrorHandler(statusCode.FORBIDDEN, NOT_ACTIVE_EMAIL.message, NOT_ACTIVE_EMAIL.code);
     }
 
-    await passHasher.compare(userByLogin.password, password);
+    await passHasher.compare(userByEmail.password, password);
 
-    req.user = userByLogin;
+    req.user = userByEmail;
 
     next();
   } catch (err) {

@@ -23,11 +23,16 @@ module.exports = {
 
   [emailActions.DELETE_USER]: {
     templateName: 'deleteUser',
-    subject: 'Delete User, approve e-mail'
+    subject: 'Delete User'
   },
 
   [emailActions.UPDATE_USER]: {
-    templateName: 'updateUser',
-    subject: 'Update User, approve e-mail'
+    templateName: 'updateUserData',
+    subject: 'Update User'
+  },
+
+  [emailActions.CHANGE_PASSWORD]: {
+    templateName: 'changeUserPassword',
+    subject: 'Change User password, approve e-mail'
   }
 };

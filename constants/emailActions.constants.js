@@ -4,5 +4,6 @@ module.exports = {
   LOG_IN: 'logIn',
   CREATE_NEW_USER: 'createUser',
   DELETE_USER: 'deleteUser',
-  UPDATE_USER: 'updateUser'
+  UPDATE_USER: 'updateUserData',
+  CHANGE_PASSWORD: 'changeUserPassword'
 };

@@ -44,7 +44,10 @@ const userSchema = new Schema({
     type: Array
   },
   documents: {
-    type: String
+    type: Array
+  },
+  newPassword: {
+    type: String,
   }
 }, { timestamps: true, toObject: { virtuals: true }, toJSON: { virtuals: true } });
 

@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 const { usersController } = require('../controllers');
 const { config: { authConfig: { ACCESS_TOKEN_TYPE } } } = require('../config');
+const { userRoles } = require('../constants');
 const { userMiddleware, authMiddleware } = require('../middlewares');
 const { userValidation: { userUpdateValidator, userValidator } } = require('../validators');
 
@@ -28,6 +29,7 @@ router.patch('/:userId',
   usersController.users.updateSomeField);
 
 router.put('/:userId',
+  userMiddleware.checkUserRole(userRoles.MANAGER),
   userMiddleware.checkDataValid(userValidator),
   userMiddleware.checkEmailExist,
   usersController.users.updateUser);
@@ -49,5 +51,20 @@ router.delete('/:userId/avatar',
 router.delete('/:userId/avatar/:avatarId',
   userMiddleware.checkIsAvatarExist,
   usersController.users.deleteChoseAvatar);
+
+router.post('/:userId/avatar/set/:avatarId',
+  userMiddleware.checkIsAvatarExist,
+  usersController.users.setAvatar);
+
+router.get('/:userId/documents',
+  usersController.users.getDocuments);
+
+router.post('/:userId/documents',
+  userMiddleware.checkUploadFiles,
+  usersController.users.addDocuments);
+
+router.post('/:userId/:docId',
+  userMiddleware.checkUploadFiles,
+  usersController.users.deleteChoseDocument);
 
 module.exports = router;

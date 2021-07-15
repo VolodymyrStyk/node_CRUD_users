@@ -9,6 +9,7 @@ const {
 const { emailActions: { CREATE_NEW_USER, DELETE_USER, UPDATE_USER } } = require('../../constants');
 const { config: { launchConfig: { SERVICE_EMAIL_ACTIVATE, STATIC }, authConfig: { AUTHORIZATION } } } = require('../../config');
 const { UserModel, OAuthModel } = require('../../dataBase');
+const { ErrorHandler, errorMessages: { RECORD_NOT_FOUND } } = require('../../errors');
 
 const {
   passHasher,
@@ -197,6 +198,30 @@ module.exports = {
       next(e);
     }
   },
+  setAvatar: async (req, res, next) => {
+    try {
+      const { params: { userId, avatarId } } = req;
+
+      const dirPath = path.join(process.cwd(), STATIC, dirName.USERS, userId, fileType.PHOTOS);
+
+      const files = await getSortedFiles(dirPath);
+      const isAvatarExist = files.includes(avatarId);
+
+      if (isAvatarExist) {
+        const avatar = path.join(dirName.USERS, userId, fileType.PHOTOS, avatarId);
+
+        await UserModel.updateOne({ _id: userId }, { avatar });
+
+        res.status(statusCode.CREATED_UPDATED).json(succesMessage.UPDATE_USER);
+      }
+
+      if (!isAvatarExist) {
+        throw new ErrorHandler(statusCode.NOT_FOUND, RECORD_NOT_FOUND.message, RECORD_NOT_FOUND.code);
+      }
+    } catch (e) {
+      next(e);
+    }
+  },
 
   deleteChoseAvatar: async (req, res, next) => {
     try {
@@ -222,4 +247,56 @@ module.exports = {
       next(e);
     }
   },
+
+  addDocuments: async (req, res, next) => {
+    try {
+      const [document] = req.documents;
+      const { userId } = req.params;
+
+      if (document) {
+        const {
+          finalPath,
+          filePath,
+          fileNameExt
+        } = await filePathBuilder(document.name, userId, dirName.USERS, fileType.DOCUMENTS);
+        await document.mv(finalPath);
+        await UserModel.updateOne({ _id: userId }, { $push: { documents: filePath } });
+
+        res.status(statusCode.CREATED_UPDATED).json(fileNameExt);
+      }
+    } catch (err) {
+      next(err);
+    }
+  },
+
+  getDocuments: async (req, res, next) => {
+    try {
+      const { userId } = req.params;
+
+      const dirPath = path.join(process.cwd(), STATIC, dirName.USERS, userId, fileType.DOCUMENTS);
+
+      const files = await getSortedFiles(dirPath);
+
+      res.json(files);
+    } catch (e) {
+      next(e);
+    }
+  },
+
+  deleteChoseDocument: async (req, res, next) => {
+    try {
+      const { params: { userId, docId } } = req;
+
+      const deleteDocFile = path.join(process.cwd(), STATIC, dirName.USERS, userId, fileType.DOCUMENTS, docId);
+      const deleteDocDB = path.join(dirName.USERS, userId, fileType.PHOTOS, docId);
+
+      await unlinkPromise(deleteDocFile);
+
+      await UserModel.updateOne({ _id: userId }, { $pull: { docs: deleteDocDB } });
+
+      res.json(docId);
+    } catch (e) {
+      next(e);
+    }
+  }
 };
